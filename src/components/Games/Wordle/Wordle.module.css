@@ -1,0 +1,134 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    place-items: center;
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+    max-width: 95vw;
+
+}
+.mainContainer ul{
+    display: flex;
+    margin-top: 0.25rem;
+}
+.menu{
+    height: fit-content;
+    font-size: 1.2rem;
+    width: fit-content;
+    display: flex;
+    cursor: pointer;
+    gap: 0.3rem;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+.mainContainer ul li{
+    list-style-type: none;
+    border: 1px solid black;
+    display: grid;
+    text-transform: uppercase;
+    place-items: center;
+    width: 50px;
+    max-height: 50px;
+    margin: 0.25rem;
+    height: 50px;
+}
+.active li{
+    opacity: 0;
+    transform: scale(0);
+    animation: showWord 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.active li:nth-child(2){
+    animation-delay: 0.2s;
+}
+.active li:nth-child(3){
+    animation-delay: 0.4s;
+}
+.active li:nth-child(4){
+    animation-delay: 0.6s;
+}
+.active li:nth-child(5){
+    animation-delay: 0.8s;
+}
+.active li:nth-child(6){
+    animation-delay: 1s;
+}
+
+.active .correct{
+    background-color: rgba(0, 128, 0, 0.8);
+}
+.active .exists{
+    background-color: rgba(250, 200, 18, 0.8);
+}
+.active .wrong{
+    background-color: rgba(45, 45, 45,0.8);
+}
+
+@keyframes showWord {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity:1;
+        transform: scale(1);
+    }
+}
+.keysContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 1rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+.keysContainer div{
+    height: fit-content;
+    display: flex;
+    width: fit-content;
+    gap:0.5rem;
+}
+.keysContainer li{
+    list-style: none;
+    background-color: rgba(153, 153, 153, 0.481);
+    padding: 0.5rem;
+    border: 1px solid black;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.keysContainer .wrong{
+    background-color: rgba(45, 45, 45, 0.6);
+}
+.keysContainer .exists{
+    background-color: rgba(250, 200, 18, 0.6);
+}
+.keysContainer .correct{
+    background-color: rgba(0, 128, 0, 0.6);
+}
+@media screen and (max-width : 400px ) {
+    .keysContainer li{
+        padding: 0.35rem;
+       
+    }
+    .mainContainer ul li{
+        max-width: 40px;
+        max-height: 40px;
+    }
+    .mainContainer{
+        top: 0;
+        margin-top: 0;
+    }
+    .keysContainer div{
+        gap: 0.25rem;
+    }
+}
+.resultP{
+    margin-top: 0.2rem;
+    cursor: pointer;
+    background-color: rgba(183, 77, 77, 0.485);
+    border-radius: 10px;
+    padding: 0 1rem 0 1rem;
+}
