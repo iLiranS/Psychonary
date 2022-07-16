@@ -44,7 +44,7 @@ function App() {
   },[canAttempt])
 
   const getDataBase = useCallback(async()=>{
-    if (canAttempt){
+    if (canAttempt && wordList.length<1){
       setCanAttempt(false);
     
     try{
