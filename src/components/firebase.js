@@ -4,14 +4,14 @@ import 'firebase/compat/firestore'
 
 
 const config = {
-  apiKey: process.env.REACT_APP_CHAT_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJCET_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGE_SENDER_ID,
-  appId: process.env.REACT_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID
+  apiKey: 'AIzaSyAf8a0maH1GHEIwDyylWSW5ZafA1FbREAA',
+  authDomain: 'psychonary-905a5.firebaseapp.com',
+  databaseURL: 'https://psychonary-905a5-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'psychonary-905a5',
+  storageBucket: 'psychonary-905a5.appspot.com',
+  messagingSenderId:'355780767843',
+  appId: '1:355780767843:web:73f7145be6078b384f8856',
+  measurementId:'G-X1XBCF7BLP'
 };
 const fireBaseApp = firebase.initializeApp(config);
 let db = fireBaseApp.firestore();
