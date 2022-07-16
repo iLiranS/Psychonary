@@ -1,0 +1,52 @@
+.menu{
+    height: fit-content;
+    font-size: 1.2rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.3rem;
+    padding-left: 0.5rem;
+}
+.mainContainer{
+    height: fit-content;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.184);
+    padding: 1rem;
+    width: min(95vw,580px);
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow: auto;
+}
+.mainContainer section:not(:first-child){
+    margin-top: 1rem;
+    
+}
+.mainContainer li{
+    margin-top: 0.5rem;
+    list-style-type: style disc;
+}
+.mainContainer li a{
+    color: white;
+}
+.mainContainer section h3{
+    margin-top: 1rem;
+}
+.addWordSection{
+    display: flex;
+    position: relative;
+    top: 1rem;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    gap: 1rem;
+}
+.addWordSection input{
+    padding: 1rem;
+    font-size: larger;
+}
+.addWordSection button{
+    width: 50%;
+    margin: auto;
+    height: 30px;
+}

@@ -1,0 +1,29 @@
+
+.mainlist ul section{
+    position: relative;
+    font-size: larger;
+    cursor: pointer;
+}
+.mainlist ul section:hover{
+    color: red
+}
+
+.pageSection{
+    width: 100%;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1rem;
+    font-size: larger;
+}
+.pageSection div{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+.pageSection div:hover{
+    color: rgb(160, 239, 160) !important;
+}

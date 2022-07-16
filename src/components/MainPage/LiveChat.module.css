@@ -1,0 +1,41 @@
+.mainContainer{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.message{
+    display: flex;
+    margin-top: 1rem;
+    background-color: rgba(223, 216, 216, 0.62);
+    border-radius: 10px;
+    padding: 1rem;
+    gap: 0.2rem;
+    justify-content: space-between;
+}
+.message p{
+    text-align: start;
+    word-break: break-all;
+}
+.message p:first-child{
+    color: rgb(79, 45, 19);
+    font-size: 0.8rem;
+    width: 100px;
+}
+.message p:last-child{
+    min-width: 55px;
+    text-align: end;
+    
+}
+.message p:nth-child(2){
+    width: 100%;
+}
+.messageContainer{
+    height: calc(100% - 60px);
+    overflow: auto;
+}

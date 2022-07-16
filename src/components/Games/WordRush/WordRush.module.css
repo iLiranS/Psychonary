@@ -1,0 +1,66 @@
+.mainContainer{
+    width: min(100vw,500px);
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    
+}
+.backToSection{
+    cursor: pointer;
+}
+.backToSection:hover{
+    color: rgb(253, 239, 221);
+    transition: 0.3s;
+}
+.infoSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    font-size: larger;
+}
+.infoSection section{
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+.timeLeftDiv{
+    width: 0%;
+    height: 0.2rem;
+    height: 0.3rem;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(236, 172, 172);
+ 
+}
+.heart{
+    color: red;
+}
+
+.timeLeftDiv{
+    animation:  5000ms toWidthZero linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes toWidthZero {
+    0%{
+        width: 100%;
+    }
+    99%{
+        border:1px solid rgb(236, 172, 172);
+    }
+    100%{
+        width: 0;
+        border: none;
+    }
+}
+
+@media screen and (max-width :400px ) {
+    .infoSection{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

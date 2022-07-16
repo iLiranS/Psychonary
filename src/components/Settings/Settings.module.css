@@ -1,0 +1,168 @@
+.mainContainer{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+.mainContainer section{
+    display: flex;
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+.mainContainer section:not(:last-child){
+    background-color: rgba(255, 255, 255, 0.212);
+    padding: 1rem;
+
+}
+
+.mainContainer section div{
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.mainContainer section div ul{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mainContainer section div ul li{
+    list-style: none;
+    background-color: blue;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.mainContainer section div ul p{
+    width: 40px;
+    text-align: left;
+}
+
+.mainContainer section input{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+}
+.mainContainer section:nth-child(2) input{
+    background: rgba(255, 255, 255, 0.693);
+    cursor: inherit;
+}
+.mainContainer button{
+    width: fit-content;
+    align-self: center;
+    position: absolute;
+    bottom: 1rem;
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: black;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: larger;
+    background-color: rgb(95, 243, 194);
+}
+.mainContainer section:last-child{
+    justify-content: space-evenly;
+}
+
+.mainContainer section button{
+    position: relative;
+    font-size: small;
+    background-color: rgba(232, 107, 107, 0.639);
+    color: white;
+}
+.li1,.li2,.li3,.li4,.li5,.li6{
+    background-size: cover;
+    background-position: center;
+}
+.li1{
+    background-image: url('https://wallpaperaccess.com/full/84248.png');
+}
+
+.li3{
+    background-image: url('https://images.alphacoders.com/693/693912.png');
+}
+.li2{
+    background-image: url('https://www.brawlhalla.com/c/uploads/2020/12/SunThroughTrees_1920x1080.jpg');
+}
+.li5{
+    background-image: url('https://wallpapercave.com/wp/wp4676613.png')
+}
+.li4{
+    background-image: url('https://images.unsplash.com/photo-1554502785-b8b0724b4cbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80');
+}
+.li6{
+    background-image: url('https://wallpaperaccess.com/full/439756.jpg');
+}
+.activeBg{
+    border: 2px solid gold;
+}
+.urlInput input{
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    padding: 0.2rem 0.5rem;
+}
+.urlInfo{
+    cursor: pointer;
+    list-style: none;
+    width: fit-content;
+    padding: 0 0.5rem;
+}
+.urlInfo::after{
+    content: 'must end with image foramt (jpg,png,jpeg...)';
+    font-size: 0.8rem;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.644);
+    z-index: 2;
+    display: none;
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.urlInfo:hover::after{
+    display: block;
+}
+@media screen and (max-width: 450px),screen and (max-height : 750px) {
+    .mainContainer section{
+        flex-direction: column;
+    }
+    .mainContainer{
+        overflow: auto;
+        padding-bottom: 0.2rem;
+    }
+    .mainContainer h3{
+        font-size: 1rem;
+    }
+    .mainContainer section button{
+        top: 0;
+        left: 0;
+        transform: initial;
+
+    }
+    .mainContainer button{
+        position: relative;
+    }
+    .mainContainer section:nth-child(2) input{
+        border-radius: 10px;
+    }
+    .mainContainer section:last-child{
+        gap: 1rem;
+    }
+}
+

@@ -1,0 +1,16 @@
+.mainContainer{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+    justify-content: center;    
+}
+
+
+
+@media screen and (max-width : 1000px) {
+   .livechat{
+    display: none;
+   }
+
+}
