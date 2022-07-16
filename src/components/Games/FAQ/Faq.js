@@ -13,8 +13,7 @@ const Faq = props =>{
     const addWord = event =>{
         event.preventDefault();
         const wordObj = { word : word , translate : translate};
-       if( dispatch(dataActions.addWord(wordObj))) {}
-       else console.log('already exists ')
+       dispatch(dataActions.addWord(wordObj))
        
     }
     const updateWord = (event) =>{
@@ -48,7 +47,7 @@ const Faq = props =>{
                     <li> Created By -  <a target="_blank" rel='noreferrer' href='https://github.com/iLiranS'>LiranS</a> with React and firebase for practicing purposes </li>
                 <h3>Some unImportant stuff about the systems</h3>
                 <li>Focus system : the code choose randomly 5 words out of the left list ( words which hasn’t been answered correctly yet ) and focus on them , every second turn will be a focused turn , But it doesn’t necessarily means that the word will be a focused one , because if the focused list gets shorter the words will be shown too repeatedly , so rng comes into place , when the list gets shorter a 1/2 random will be generated which brings it into a 1/4 average.</li>
-                <li> If focused list has 1 word left as well as the left list , the not focused turn will be drawn from all words. (to prevent the same word to appear twice in a row). </li>
+                <li> If focused list has 1 word left as well as the left list , the not focused turn will be drawn from all words.(to prevent the same word to appear twice in a row).</li>
                 <li>When the player learned a word from the focus list , a new word will be added to the focus list randomly , if there is any left.. </li>
                 <li>When the player finishes the left list , random word from all words array will be generated .</li>
                 <li>The focus and left list are stored in localStorage for individual sessions , all words fetched form firebase database , and left list is filtering of all which doesn’t include learned .</li>

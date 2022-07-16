@@ -50,9 +50,9 @@ const data = createSlice({
         const wordObj = action.payload;
          let wordOnlyList = [...state.wordList];
           wordOnlyList = wordOnlyList.map(item => item.word);
-         if (wordOnlyList.includes(wordObj.word)) { console.log('exists')};
+         if (wordOnlyList.includes(wordObj.word)) { console.log('exists'); return;};
         // now add the word to firebase .
-         fetch(process.env.REACT_APP_WORDS_API_KEY,{
+         fetch(`${process.env.REACT_APP_API_KEY}`,{
              method:'POST',
              body:JSON.stringify(wordObj),
             headers: { 'Content-Type':'application/json'}
