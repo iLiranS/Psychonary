@@ -24,6 +24,7 @@ function App() {
   const [page,setPage] = useState('home');
   const [fireBaseApp,setFireBaseApp] = useState(null);
   const dispatch = useDispatch();
+  const [canAttempt,setCanAttempt] = useState(true);
   
 
 
@@ -36,8 +37,16 @@ function App() {
     }
     else document.body.style.backgroundImage = `url(${bg})`;
   },[bg])
+  useEffect(()=>{
+   setTimeout(() => {
+    setCanAttempt(true);
+   }, 2000); 
+  },[canAttempt])
 
   const getDataBase = useCallback(async()=>{
+    if (canAttempt){
+      setCanAttempt(false);
+    
     try{
     const response = await fetch(`${process.env.REACT_APP_API_KEY}`);
     if (!response.ok) throw new Error('couldnt get database');
@@ -48,7 +57,8 @@ function App() {
     catch(err){
       console.log('something went wrong ' + err.message)
     }
-  },[dispatch])
+  }
+  },[dispatch,canAttempt])
 
 //first effect used to load data from firebase and set data wordList to firebase's one.
  useEffect(()=>{
