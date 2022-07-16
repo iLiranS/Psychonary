@@ -40,18 +40,26 @@ function App() {
     else document.body.style.backgroundImage = `url(${bg})`;
   },[bg])
 
+  const getDataBase = () =>{
+    const options ={
+      method:'GET',
+      url:process.env.REACT_APP_WORDS_API_KEY,
+      headers:{}
+  }
+  axios.request(options).then((response)=>{
+    dispatch(dataActions.setList(response.data))
+    return;
+  }).catch((error)=>{
+      console.log(error);
+      setTimeout(() => {
+        getDataBase();
+      }, 1000);
+  })
+  }
+
 //first effect used to load data from firebase and set data wordList to firebase's one.
  useEffect(()=>{
-  const options ={
-    method:'GET',
-    url:process.env.REACT_APP_WORDS_API_KEY,
-    headers:{}
-}
-axios.request(options).then((response)=>{
-  dispatch(dataActions.setList(response.data))
-}).catch((error)=>{
-    console.log(error);
-})
+  getDataBase();
 
 
 
