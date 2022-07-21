@@ -78,7 +78,7 @@ function App() {
 
   return (
     <div style={{'color':textColor}} >
-      
+
       <Menu changePage={changePage} />
      {page==='home' && wordList.length>0 && <Main/>}
      {wordList.length ===0 && <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>}

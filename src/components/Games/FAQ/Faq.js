@@ -1,8 +1,10 @@
 import styles from './Faq.module.css';
+import logo from '../../../logo';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { dataActions } from '../../../store/data';
+
 const Faq = props =>{
     const dispatch = useDispatch();
     const [word,setWord] = useState('');
@@ -25,12 +27,14 @@ const Faq = props =>{
 
     return(
         <div className={styles.mainContainer}>
+           
              <section className={styles.menu} onClick={backToList}> <IoMdArrowRoundBack/>  <p>Back To Games</p></section>
-             <form className={styles.addWordSection}>
+             <section className={styles.logoSection}>{logo}</section>
+             {/* <form className={styles.addWordSection}>
                     <input onChange={updateWord} value={word} type='text' placeholder='word'></input>
                     <input onChange={updateTranslate} value={translate} type='text' placeholder='translate'></input>
                     <button onClick={addWord}>ADD</button>
-                </form>
+                </form> */}
             <section>
                 <h3>Some information about the site</h3>
                 <p>This site has been created for the purpose of learning and improving our english vocabulary , especially for the psychometric test, I've also used this opportunity to practice my react skills.
