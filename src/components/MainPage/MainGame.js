@@ -85,11 +85,12 @@ useEffect(()=>{
             {props.done ? <p>! עברת על כל המילים</p> : ''}
            <div className={styles.wordDiv}> <h2>{chosen.word}</h2> <TiVolumeDown className={styles.btn} onClick={speechWord}/> </div>
             <section>
+                <ul>
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[0] ? styles.chosen : ''} ${chosenIndex === 0 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[0]}</li>
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[1] ? styles.chosen : ''} ${chosenIndex === 1 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[1]}</li>
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[2] ? styles.chosen : ''} ${chosenIndex === 2 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[2]}</li>
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[3] ? styles.chosen : ''} ${chosenIndex === 3 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[3]}</li>
-
+                </ul>
             </section>
         </div>
         </div>

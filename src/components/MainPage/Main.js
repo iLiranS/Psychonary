@@ -3,6 +3,7 @@ import { useSelector , useDispatch } from 'react-redux';
 import styles from './Main.module.css';
 import MainGame from './MainGame';
 import { dataActions } from '../../store/data';
+import logo from '../../logo';
 
 
 
@@ -143,13 +144,9 @@ const Main = props =>{
 // }
     return(
         <div className={styles.mainContainer}>
-            {/* <section> 
-                <form onSubmit={addword}>
-                     <input type='text' ref={wordRef} placeholder='מילה'></input>
-                     <input type='text' ref={tranRef} placeholder='תרגום'></input>
-                    <button>הוסף מילה</button>
-                </form>
-                </section> */}
+            <section className={styles.logoSection}>
+                {logo}
+            </section>
            {currentWord && wordList.length>3 ? <MainGame finishRound={finishRound} chosen={currentWord} done={isDone}/> : <section>Oh oh , something went wrong 😵  </section>}
            
         </div>
