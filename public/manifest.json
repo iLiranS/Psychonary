@@ -26,11 +26,11 @@
       "src": "./favicon.svg",
       "sizes": "48x48 72x72 96x96 128x128 132x150",
       "type": "image/svg+xml",
-      "purpose": "maskable"
+      "purpose": "maskable any"
   }
 
   ],
-  "start_url": "/index.html",
+  "start_url": "/index.html/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
