@@ -48,6 +48,9 @@ const Faq = props =>{
                     <li>Live Chat - Chat with other users, Suggest features or report a bug  , just dont abuse it / curse others </li>
                     <li>Options - set the background or even a custom one ! also customize the card background and the text color .  </li>
                     <li>Games - Play games based on the available word list of the site , more games will come soon ! </li>
+                    <li>Progressive Web App is available, which means you can use the website as an application/software! &nbsp;
+                        <a rel='noreferrer' href='https://www.pcmag.com/how-to/how-to-use-progressive-web-apps' target='_blank'>read more</a>
+                    </li>
                     <li> Created By -  <a target="_blank" rel='noreferrer' href='https://github.com/iLiranS'>LiranS</a> with React and firebase for practicing purposes </li>
                 <h3>Some unImportant stuff about the systems</h3>
                 <li>Focus system : the code choose randomly 5 words out of the left list ( words which hasn’t been answered correctly yet ) and focus on them , every second turn will be a focused turn , But it doesn’t necessarily means that the word will be a focused one , because if the focused list gets shorter the words will be shown too repeatedly , so rng comes into place , when the list gets shorter a 1/2 random will be generated which brings it into a 1/4 average.</li>

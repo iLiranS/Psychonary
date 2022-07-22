@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const bg1 = 'https://wallpaperaccess.com/full/84248.png'
-const bg2 = 'https://www.brawlhalla.com/c/uploads/2020/12/SunThroughTrees_1920x1080.jpg'
+const bg2 = 'https://images.hdqwalls.com/wallpapers/desert-night-minimal-4k-hp.jpg'
 const bg3 = 'https://images.alphacoders.com/693/693912.png'
 const bg4 = 'https://images.unsplash.com/photo-1554502785-b8b0724b4cbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80';
 const bg5 = 'https://wallpapercave.com/wp/wp4676613.png';
