@@ -1,4 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { db } from "../components/firebase";
+
+
+const addWordToFirestore = async(obj)=>{
+    await db.collection('list').add({
+        word : obj.word,
+        translate: obj.translate
+    })
+}
 
 
 const data = createSlice({
@@ -52,15 +61,19 @@ const data = createSlice({
           wordOnlyList = wordOnlyList.map(item => item.word);
          if (wordOnlyList.includes(wordObj.word)) { console.log('exists'); return;};
         // now add the word to firebase .
-         fetch(`${process.env.REACT_APP_API_KEY}`,{
-             method:'POST',
-             body:JSON.stringify(wordObj),
-            headers: { 'Content-Type':'application/json'}
-           }).then((response)=> response.json()).then((responseJson)=>{
-        window.location.reload();
-            console.log('word added successfully !',responseJson);
-           })
-          return true;
+
+        addWordToFirestore(wordObj);
+
+    // this is the old version of real time database .
+
+        //  fetch(`${process.env.REACT_APP_API_KEY}`,{
+        //      method:'POST',
+        //      body:JSON.stringify(wordObj),
+        //     headers: { 'Content-Type':'application/json'}
+        //    }).then((response)=> response.json()).then((responseJson)=>{
+        // window.location.reload();
+        //     console.log('word added successfully !',responseJson);
+        //    })
        }
     }
 })

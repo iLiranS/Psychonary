@@ -1,7 +1,7 @@
 import './App.css';
 import Menu from './components/menu/Menu';
 import Main from './components/MainPage/Main';
-import   { dataActions } from './store/data';
+import    { dataActions } from './store/data';
 import {  useCallback, useEffect, useState } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import Dictionary from './components/Dictionary/Dictionary';
@@ -10,6 +10,7 @@ import Settings from './components/Settings/Settings';
 import GameList from './components/Games/GameList';
 import LiveChat from './components/MainPage/LiveChat';
 import {db } from './components/firebase'
+import  firebase from 'firebase/compat/app'; 
 
 
 
@@ -22,12 +23,11 @@ function App() {
   const bg = useSelector(state=> state.theme.bg);
   const textColor = useSelector(state=> state.theme.textColor);
   const [page,setPage] = useState('home');
-  const [fireBaseApp,setFireBaseApp] = useState(null);
+  const [oldList,setOldList] = useState([]);
+  const [hasdone,setHasdone] = useState(false);
   const dispatch = useDispatch();
-  const [canAttempt,setCanAttempt] = useState(true);
-  
-
-
+  const auth = firebase.auth();
+console.log('App.js Rendered !')
 
   // update bg whenever changes .
   useEffect(()=>{
@@ -37,44 +37,25 @@ function App() {
     }
     else document.body.style.backgroundImage = `url(${bg})`;
   },[bg])
-  useEffect(()=>{
-   setTimeout(() => {
-    setCanAttempt(true);
-   }, 2000); 
-  },[canAttempt])
 
+// get the database which poinitng to getting function
   const getDataBase = useCallback(async()=>{
-    if (canAttempt && wordList.length<1){
-      setCanAttempt(false);
-    
-    try{
-    const response = await fetch(`${process.env.REACT_APP_API_KEY}`);
-    if (!response.ok) throw new Error('couldnt get database');
-      const data = await response.json();
+    if (wordList.length<1){
+      const snapshot = await db.collection('list').get()
+      const data =(snapshot.docs.map(doc => doc.data()));
       dispatch(dataActions.setList(data));
-
-    }
-    catch(err){
-      console.log('something went wrong ' + err.message)
-    }
   }
-  },[dispatch,canAttempt])
+  },[dispatch,wordList.length])
 
-//first effect used to load data from firebase and set data wordList to firebase's one.
- useEffect(()=>{
+// first effect to set list 
+useEffect(()=>{
   getDataBase();
-
-
-
- },[getDataBase])
+},[getDataBase])
 
  const changePage = page =>{
   dispatch(themeActions.disableAll());
   setPage(page);
  }
-
-
- 
 
   return (
     <div style={{'color':textColor}} >

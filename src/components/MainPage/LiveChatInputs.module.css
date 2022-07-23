@@ -1,11 +1,11 @@
 .inputDiv{
     position: relative;
     width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 8fr 1fr;
+    display: flex;
     grid-gap: 0.5rem;
     height: 50px;
     align-items: center;
+    justify-content: space-between;
 }
 .inputDiv input{
     width: 100%;
@@ -25,9 +25,12 @@
 }
 .sendBtn{
     font-size: 1.5rem;
+    position: relative;
     color: rgb(112, 245, 112);
     justify-self: end;
     cursor: pointer;
+    width: 30px;
+    
 }
 .invalid{
     border: 1px solid red !important;
