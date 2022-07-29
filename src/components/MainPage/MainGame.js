@@ -13,7 +13,6 @@ const [mixOfAnswers,setMixOfAnswers] = useState([]);
 const [chosenIndex,setChosenIndex]= useState();
 let { chosen , shortAnimation} = props;
 
-
 const bgcolor = CardAlpha(bg,0.1);
 
 
@@ -42,9 +41,10 @@ useEffect(()=>{
 
 
     const checkAnswer = el =>{
+        let answer=''
         if (!hasClicked){
         setHasClicked(true);
-       const answer = el.target.innerHTML;
+      answer = el.target.innerHTML;
        setChosenAnswer(answer);
        if (answer === chosen.translate){
         // won
@@ -90,6 +90,7 @@ useEffect(()=>{
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[1] ? styles.chosen : ''} ${chosenIndex === 1 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[1]}</li>
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[2] ? styles.chosen : ''} ${chosenIndex === 2 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[2]}</li>
                 <li className={` ${shortAnimation && styles.short} ${chosenAnswer ===mixOfAnswers[3] ? styles.chosen : ''} ${chosenIndex === 3 ? styles.correct : styles.wrong} ${hasClicked && styles.active}`} onClick={checkAnswer}>{mixOfAnswers[3]}</li>
+                {!shortAnimation && <li className={styles.skipAnswer} onClick={checkAnswer}>SKIP WORD</li>}
                 </ul>
             </section>
         </div>

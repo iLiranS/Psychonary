@@ -36,7 +36,7 @@ const GameList = props =>{
                 </li>
 
 
-                <li className={styles.disabled}  >
+                <li onClick={()=>{setGame(2)}}  >
                     <div>
                         <h2>Snake</h2>
                         <p>The popular snake game with a nice twist</p>

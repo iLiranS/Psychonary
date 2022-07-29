@@ -11,6 +11,8 @@ import GameList from './components/Games/GameList';
 import LiveChat from './components/MainPage/LiveChat';
 import {db } from './components/firebase'
 import  firebase from 'firebase/compat/app'; 
+import {  orderBy, query } from "firebase/firestore";  
+
 
 
 
@@ -23,8 +25,6 @@ function App() {
   const bg = useSelector(state=> state.theme.bg);
   const textColor = useSelector(state=> state.theme.textColor);
   const [page,setPage] = useState('home');
-  const [oldList,setOldList] = useState([]);
-  const [hasdone,setHasdone] = useState(false);
   const dispatch = useDispatch();
   const auth = firebase.auth();
 console.log('App.js Rendered !')
@@ -41,9 +41,9 @@ console.log('App.js Rendered !')
 // get the database which poinitng to getting function
   const getDataBase = useCallback(async()=>{
     if (wordList.length<1){
-      const snapshot = await db.collection('list').get()
-      const data =(snapshot.docs.map(doc => doc.data()));
-      dispatch(dataActions.setList(data));
+      db.collection('list').orderBy('word','asc').onSnapshot((snapshot)=>{
+        dispatch(dataActions.setList(snapshot.docs.map(doc => doc.data())));
+    });
   }
   },[dispatch,wordList.length])
 

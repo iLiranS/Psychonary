@@ -2,17 +2,19 @@ import styles from './Dictionary.module.css';
 import PortalCard from '../UI/PortalCard';
 import { useDispatch , useSelector } from 'react-redux';
 import { themeActions } from '../../store/themeSlice';
-import {AiOutlineArrowUp} from 'react-icons/ai'
 import List from './List';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const Dictionary = () =>{
     // not most optimized because mapping everytime , instead I can only filter .
     const [currentList,setCurrentList] = useState(1);
- 
+    const elementRef = useRef();
 const scrollToTop = () =>{
-  const div =  document.getElementById('listcontainer');
-  div.scrollTop=0;
+  const div =  elementRef.current;
+  setTimeout(() => {
+    
+      div.scrollTop=0;
+  }, 50);
 }
 
     const list = useSelector(state=> state.data.wordList);
@@ -37,7 +39,7 @@ const scrollToTop = () =>{
 
     return(
         <PortalCard closePortal={closePortal}>
-         <div id='listcontainer' className={styles.mainContainer}>
+         <div ref={elementRef} className={styles.mainContainer}>
           <label htmlFor="listType">Choose List</label>
           <select onChange={changeList} id="listType">
             <option value="1">All words</option>
@@ -45,8 +47,7 @@ const scrollToTop = () =>{
             <option value="3">Learned words</option> 
           </select>
           <h3>TOTAL WORDS : {length}</h3>
-         <List isLearned={currentList ===3} list={wantedList}/>
-            <section onClick={scrollToTop} className={styles.scrollToTop}><AiOutlineArrowUp/></section>
+         <List scrollToTop={scrollToTop} isLearned={currentList ===3} list={wantedList}/>
          </div>
         </PortalCard>
     )

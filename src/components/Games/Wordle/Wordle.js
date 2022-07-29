@@ -204,19 +204,15 @@ useEffect(()=>{
     const liClass = (enteredWord,index) =>{
         if (!enteredWord.charAt(index)) return '';
         if (!word.includes(enteredWord.charAt(index))) return(styles.wrong);
-
         if (word.charAt(index)===enteredWord.charAt(index)) return(styles.correct);
-        // need to check if this letter is the first time it appears , if so dont add class to it.
-            let amountOfTimes = 0;
-            let ifAlreadyCorrect = false;
-            let lastIndex = -1;
-            for (let i = 0 ; i < enteredWord.length;i++){
-                if (enteredWord.charAt(i)===enteredWord.charAt(index)) amountOfTimes++;
-                if (word.charAt(i)===enteredWord.charAt(index))ifAlreadyCorrect=true;
-                if (enteredWord.charAt(i)=== enteredWord.charAt(index))lastIndex=i;
+        // if correct word already found , show wrong
+            let existsIndex =-1;
+            let sameLettersIndex = [];
+            for (let i = 0 ; i < word.length;i++){
+                if (word.charAt(i)===enteredWord.charAt(i) && word.charAt(i)===enteredWord.charAt(index))existsIndex=i;
+                if (enteredWord.charAt(i)===enteredWord.charAt(index))sameLettersIndex.push(i);
             }
-            if (amountOfTimes > 1 && ifAlreadyCorrect && lastIndex===index) return (styles.wrong);
-            
+            if (existsIndex >-1 || index!==sameLettersIndex[sameLettersIndex.length-1]) return styles.wrong;
             return styles.exists;
         
     }

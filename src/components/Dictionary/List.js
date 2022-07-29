@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from './List.module.css';
 import {IoMdRemoveCircleOutline} from 'react-icons/io';
 import { useDispatch } from "react-redux";
@@ -52,9 +52,11 @@ const List = props =>{
     
         const prevPage = () =>{
                 setPage(prev => prev-1)
+                props.scrollToTop()
         }
         const nextPage = () =>{
             setPage(prev => prev+1)
+            props.scrollToTop()
         }
 
     
